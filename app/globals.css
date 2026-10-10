@@ -1,26 +1,124 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #fefefe;
+  --purple: #a600ff;
+  --purple-light: #c466ff;
+  --purple-dark: #7a07c5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-purple: var(--purple);
+  --color-purple-light: var(--purple-light);
+  --color-purple-dark: var(--purple-dark);
+  --font-mono: var(--font-space-mono), "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-mono), "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  overflow-x: hidden;
+  letter-spacing: -0.02em;
+}
+
+/* Brutalist Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-left: 1px solid #7a07c5;
+}
+::-webkit-scrollbar-thumb {
+  background: #a600ff;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c466ff;
+}
+
+/* Brutalist Grid and Utility Styling */
+.brutalist-border {
+  border: 1px solid #7a07c5;
+  box-shadow: 4px 4px 0px #7a07c5;
+}
+
+.brutalist-border-purple {
+  border: 2px solid #a600ff;
+  box-shadow: 5px 5px 0px #a600ff;
+}
+
+.brutalist-border-hover {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.brutalist-border-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #a600ff;
+}
+
+.brutalist-card {
+  background: #0d0d0d;
+  border: 1px solid #2e1045;
+  position: relative;
+}
+
+.brutalist-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a600ff, #c466ff, #7a07c5);
+}
+
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(166, 0, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(166, 0, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.glow-purple {
+  text-shadow: 0 0 16px rgba(166, 0, 255, 0.8), 0 0 32px rgba(196, 102, 255, 0.4);
+}
+
+.box-glow {
+  box-shadow: 0 0 24px rgba(166, 0, 255, 0.25);
+}
+
+/* Scanline Overlay for Anti-Design aesthetic */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 26, 0) 50%, 
+    rgba(0, 0, 0, 0.3) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(166, 0, 255, 0.03),
+    rgba(0, 0, 0, 0.02),
+    rgba(196, 102, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Cyber text flicker */
+@keyframes glitch {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  52% { opacity: 0.92; }
+  54% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+.glitch-text {
+  animation: glitch 3s infinite;
 }
