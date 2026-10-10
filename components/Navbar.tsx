@@ -44,7 +44,10 @@ export default function Navbar({ variant = "landing" }: NavbarProps) {
       <header className="sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#7a07c5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Brand Logo & Title */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
+          >
             <div className="relative w-8 h-8 sm:w-9 sm:h-9 bg-[#140026] border border-[#a600ff] flex items-center justify-center p-1 shadow-[2px_2px_0px_#7a07c5]">
               <Image
                 src="/oplink.png"
@@ -59,9 +62,6 @@ export default function Navbar({ variant = "landing" }: NavbarProps) {
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <span className="font-mono font-black text-lg sm:text-xl tracking-tighter text-white group-hover:text-[#c466ff] transition-colors">
                   OPLINK
-                </span>
-                <span className="hidden sm:inline-block text-[9px] font-mono px-1.5 py-0.2 bg-[#120024] border border-[#7a07c5] text-[#c466ff]">
-                  v2.4
                 </span>
               </div>
             </div>
@@ -205,7 +205,11 @@ export default function Navbar({ variant = "landing" }: NavbarProps) {
               className="p-2 bg-[#120024] border border-[#a600ff] text-[#c466ff] focus:outline-none cursor-pointer"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>
@@ -215,8 +219,13 @@ export default function Navbar({ variant = "landing" }: NavbarProps) {
           <div className="lg:hidden bg-[#0d0d0d] border-b-2 border-[#a600ff] p-4 space-y-2 font-mono">
             {/* Status bar */}
             <div className="p-2 bg-[#120024] border border-[#7a07c5] text-[11px] flex items-center justify-between text-zinc-300 mb-3">
-              <span>Status: {user ? `Authenticated (${user.email})` : "Guest Explorer"}</span>
-              <span className="text-[#c466ff] font-bold">{user ? "ONLINE" : "READ-ONLY"}</span>
+              <span>
+                Status:{" "}
+                {user ? `Authenticated (${user.email})` : "Guest Explorer"}
+              </span>
+              <span className="text-[#c466ff] font-bold">
+                {user ? "ONLINE" : "READ-ONLY"}
+              </span>
             </div>
 
             <Link
@@ -244,7 +253,8 @@ export default function Navbar({ variant = "landing" }: NavbarProps) {
               }`}
             >
               <span className="flex items-center gap-2">
-                <Activity className="w-4 h-4 text-[#a600ff]" /> 02. Live Pipeline Runner
+                <Activity className="w-4 h-4 text-[#a600ff]" /> 02. Live
+                Pipeline Runner
               </span>
               <ArrowRight className="w-3.5 h-3.5 text-[#c466ff]" />
             </Link>
@@ -259,7 +269,8 @@ export default function Navbar({ variant = "landing" }: NavbarProps) {
               }`}
             >
               <span className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#a600ff]" /> 03. Self-Healing Diff
+                <ShieldCheck className="w-4 h-4 text-[#a600ff]" /> 03.
+                Self-Healing Diff
               </span>
               <ArrowRight className="w-3.5 h-3.5 text-[#c466ff]" />
             </Link>
@@ -274,7 +285,8 @@ export default function Navbar({ variant = "landing" }: NavbarProps) {
               }`}
             >
               <span className="flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-[#a600ff]" /> 04. neatlogs Telemetry
+                <Terminal className="w-4 h-4 text-[#a600ff]" /> 04. neatlogs
+                Telemetry
               </span>
               <ArrowRight className="w-3.5 h-3.5 text-[#c466ff]" />
             </Link>
@@ -289,7 +301,8 @@ export default function Navbar({ variant = "landing" }: NavbarProps) {
               }`}
             >
               <span className="flex items-center gap-2">
-                <DollarSign className="w-4 h-4 text-[#a600ff]" /> 05. cfo.ai Unit Economics
+                <DollarSign className="w-4 h-4 text-[#a600ff]" /> 05. cfo.ai
+                Unit Economics
               </span>
               <ArrowRight className="w-3.5 h-3.5 text-[#c466ff]" />
             </Link>
